@@ -4,12 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.dispositivosmoviles.R
+import com.dispositivosmoviles.adapter.LugarAdapter
 import com.dispositivosmoviles.databinding.FragmentHomeBinding
+import com.dispositivosmoviles.model.Lugar
 import com.dispositivosmoviles.viewmodel.HomeViewModel
 
 class HomeFragment : Fragment() {
@@ -32,6 +36,18 @@ class HomeFragment : Fragment() {
         binding.addLugarFabBt   .setOnClickListener {
             findNavController().navigate(R.id.action_nav_home_to_addLugarFragment)
         }
+
+        //Cargar datos
+        val lugarAdaper = LugarAdapter()
+        val reciclador = binding.reciclador
+        reciclador.adapter = lugarAdaper
+        reciclador.layoutManager = LinearLayoutManager(requireContext())
+
+        homeViewModel.obtenerLugares.observe(viewLifecycleOwner){
+            lugares -> lugarAdaper.setLugares(lugares)
+        }
+
+
         return binding.root
     }
 

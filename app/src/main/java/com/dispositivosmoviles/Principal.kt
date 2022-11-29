@@ -10,8 +10,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
 import com.dispositivosmoviles.databinding.ActivityPrincipalBinding
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -30,8 +32,13 @@ class Principal : AppCompatActivity() {
         setSupportActionBar(binding.appBarPrincipal.toolbar)
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
+
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_principal)
+
+        //val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_principal) as NavHostFragment
+        //val navController = navHostFragment.navController
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(

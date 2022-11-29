@@ -5,8 +5,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".ui.home.addLugarFragment">
+    tools:context="ui.home.ActualizarLugarFragment">
 
+    <!-- TODO: Update blank fragment layout -->
     <EditText
         android:id="@+id/et_nombre"
         android:layout_width="match_parent"
@@ -44,9 +45,9 @@
         android:minHeight="48dp" />
 
     <Button
-        android:id="@+id/bt_add_lugar"
+        android:id="@+id/bt_update_lugar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/bt_add_lugar" />
+        android:text="@string/bt_update_lugar" />
 
 </LinearLayout>
