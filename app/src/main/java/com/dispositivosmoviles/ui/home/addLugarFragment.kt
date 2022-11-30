@@ -49,8 +49,8 @@ class addLugarFragment : Fragment() {
 
 
         if (nombre.isNotEmpty()) {   //Al menos tenemos un nombre
-            val lugar = Lugar(0,nombre,correo,web,telefono)
-            lugarViewModel.guardarLugar(lugar)
+            val lugar = Lugar("",nombre,correo,telefono,web)
+            lugarViewModel.agregarLugar(lugar)
             Toast.makeText(requireContext(),"Exito", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_addLugarFragment_to_nav_home)
         } else {  //No hay info del lugar...

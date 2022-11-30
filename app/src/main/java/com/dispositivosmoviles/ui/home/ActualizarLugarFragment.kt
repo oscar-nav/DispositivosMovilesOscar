@@ -60,7 +60,7 @@ class ActualizarLugarFragment : Fragment() {
         }
         else{
             val lugar = Lugar(args.lugar.id, nombre, correo, telefono, web)
-            homeViewModel.guardarLugar(lugar)
+            homeViewModel.agregarLugar(lugar)
             Toast.makeText(requireContext(), getString(R.string.msg_lugar_updated), Toast.LENGTH_LONG)
             findNavController().navigate(R.id.action_actualizarLugarFragment_to_nav_home)
         }
@@ -82,7 +82,7 @@ class ActualizarLugarFragment : Fragment() {
         }
         else{
             val lugar = Lugar(args.lugar.id, nombre, correo, telefono, web)
-            homeViewModel.guardarLugar(lugar)
+            homeViewModel.agregarLugar(lugar)
             Toast.makeText(requireContext(), getString(R.string.msg_lugar_updated), Toast.LENGTH_LONG)
             findNavController().navigate(R.id.action_actualizarLugarFragment_to_nav_home)
         }
