@@ -4,10 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.dispositivosmoviles.ui.home.ActualizarLugarFragmentDirections
 import com.dispositivosmoviles.databinding.FragmentLugarFilaBinding
 import com.dispositivosmoviles.model.Lugar
 import com.dispositivosmoviles.ui.home.HomeFragmentDirections
+
 
 class LugarAdapter: RecyclerView.Adapter<LugarAdapter.LugarViewHolder>(){
 
@@ -18,6 +20,11 @@ class LugarAdapter: RecyclerView.Adapter<LugarAdapter.LugarViewHolder>(){
             itemBinding.tvTelefono.text = lugar.telefono
             itemBinding.tvCorreo.text = lugar.correo
 
+            if(lugar.rutaImagen.isNotEmpty()==true) {
+                Glide.with(itemBinding.root.context)
+                    .load(lugar.rutaImagen)
+                    .into(itemBinding.imagen)
+            }
             //modificar
 
             itemBinding.vistaFila.setOnClickListener{
@@ -25,8 +32,6 @@ class LugarAdapter: RecyclerView.Adapter<LugarAdapter.LugarViewHolder>(){
                 .actionNavHomeToActualizarLugarFragment(lugar)
                 itemView.findNavController().navigate(accion)
             }
-
-
 
         }
 
